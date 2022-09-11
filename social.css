@@ -1,0 +1,256 @@
+:root {
+  /* primary */
+  --VeryDarkMagenta: hsl(300, 43%, 22%);
+  --SoftPink: hsl(333, 80%, 67%);
+
+  /* Neutral */
+  --DarkGrayishMagenta: hsl(303, 10%, 53%);
+  --LightGrayishMagenta: hsl(300, 24%, 96%);
+  --White: hsl(0, 0%, 100%);
+
+  /* Typography */
+  --Fontsize: 15px;
+  --fontweight1: 417;
+  --fontweight2: 603;
+  --fontweight3: 703;
+  --fontFamily: "League", sans-serif;
+}
+@font-face {
+  font-family: League;
+  src: url(LeagueSpartan-VariableFont_wght.ttf);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fontFamily);
+  height: max-content;
+  /* width: max-content; */
+  background-image: url(./images/bg-pattern-top-desktop.svg),
+    url(./images/bg-pattern-bottom-desktop.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-size: auto, cover;
+  background-position-x: -10%, 0%;
+  background-position-y: -15%, -35%;
+}
+
+main {
+  margin: 3% 12%;
+  height: 85vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "tit rat"
+    "cus cus";
+}
+
+.main_description,
+.rating_description,
+.buyer_details {
+  font-size: var(--Fontsize);
+}
+
+.main_title,
+.rating_description {
+  color: var(--VeryDarkMagenta);
+}
+
+#title_container {
+  max-width: 100%;
+  margin-top: 2%;
+  grid-area: tit;
+}
+
+.main_title {
+  max-width: 60%;
+  margin-bottom: 5%;
+  font-weight: var(--fontweight3);
+  color: var(--VeryDarkMagenta);
+  font-size: 48px;
+}
+
+.main_description {
+  max-width: 68%;
+  color: var(--DarkGrayishMagenta);
+  font-weight: var(--fontweight2);
+}
+
+#rating_container {
+  grid-area: rat;
+  margin-top: 8%;
+  margin-left: 10%;
+  width: 90%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rating {
+  background-color: var(--LightGrayishMagenta);
+  border-radius: 5px;
+  max-height: 28%;
+  min-width: 75%;
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.rating1 {
+  align-self: flex-start;
+}
+
+.rating2 {
+  align-self: center;
+}
+
+.rating3 {
+  align-self: flex-end;
+}
+
+.rating_description {
+  font-weight: var(--fontweight3);
+}
+
+#buyer_container {
+  grid-area: cus;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.customer_image {
+  width: 12%;
+  border-radius: 50%;
+}
+
+h4 {
+  color: var(--White);
+  font-weight: var(--fontweight2);
+}
+
+strong {
+  color: var(--SoftPink);
+  font-weight: var(--fontweight1);
+}
+
+.buyer_review {
+  text-align: center;
+  color: var(--White);
+}
+
+.buyer_card {
+  background-color: var(--VeryDarkMagenta);
+  border-radius: 5px;
+  width: 32%;
+  height: 70%;
+  padding: 2%;
+}
+
+.buyer_card1 {
+  align-self: flex-start;
+}
+
+.buyer_card2 {
+  align-self: center;
+}
+
+.buyer_card3 {
+  align-self: flex-end;
+}
+
+.customer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 8%;
+  margin-left: 2%;
+}
+
+.buyer_details {
+  display: inline-block;
+  margin-left: 5%;
+}
+
+@media screen and (min-width: 200px) and (max-width: 750px) {
+  body {
+    height: 100%;
+    background-image: url(./images/bg-pattern-top-mobile.svg),
+      url(./images/bg-pattern-bottom-mobile.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top left, bottom right;
+    background-size: auto, cover;
+    background-position-x: 4vh, 0vh;
+    background-position-y: 0vh, 20vh;
+  }
+
+  main {
+    margin: 10%;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 3fr;
+    grid-template-areas:
+      "tit"
+      "rat"
+      "cus";
+    grid-gap: 2%;
+  }
+
+  .main_title {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .main_description {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  #rating_container {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .rating {
+    flex-direction: column;
+    padding: 2%;
+    max-height: 26%;
+    min-width: 100%;
+  }
+
+  .rating1,
+  .rating2,
+  .rating3 {
+    align-self: center;
+  }
+
+  #buyer_container {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .buyer_card {
+    width: 100%;
+    height: 30%;
+    padding: 7%;
+  }
+
+  .buyer_card1,
+  .buyer_card2,
+  .buyer_card3 {
+    align-self: center;
+  }
+
+  .buyer_review {
+    text-align: left;
+    padding-bottom: 5%;
+  }
+}
